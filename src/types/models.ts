@@ -6,6 +6,7 @@ export type Product = {
   productPrice: number;
   compareAtPrice?: number;
   stockQuantity: number;
+  reorderLevel: number;
   isActive: boolean;
   productImage?: string;
   metalMaterial?: string;
