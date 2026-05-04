@@ -18,6 +18,7 @@ import { StaffCustomDesignRequestsScreen } from "../screens/staff/StaffCustomDes
 
 const Stack = createNativeStackNavigator<StaffStackParamList>();
 
+// Shared styling for all staff screens 
 const headerOpts = {
   headerTintColor: colors.accent,
   headerStyle: { backgroundColor: colors.surface },
