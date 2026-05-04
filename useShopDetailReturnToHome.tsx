@@ -17,6 +17,7 @@ export function useShopDetailReturnToHome(
   const returnFlowRef = useRef(false);
 
   const returnToHome = useCallback(() => {
+    // Prevent duplicate navigation triggers
     if (returnFlowRef.current) return;
     returnFlowRef.current = true;
     bypassBeforeRemoveRef.current = true;
