@@ -5,6 +5,7 @@ import { staffCreateDiscount, staffUpdateDiscount } from "../../api/staffApi";
 import { useStaffAuth } from "../../context/StaffAuthContext";
 import type { StaffStackParamList } from "../../navigation/types";
 import { colors, spacing, touch } from "../../theme";
+import DateTimePicker from "@react-native-community/datetimepicker";
 
 type Props = NativeStackScreenProps<StaffStackParamList, "StaffDiscountEditor">;
 
@@ -24,6 +25,8 @@ export function StaffDiscountEditorScreen({ navigation, route }: Props) {
   const [minSub, setMinSub] = useState(d?.minSubtotal != null ? String(d.minSubtotal) : "");
   const [maxUses, setMaxUses] = useState(d?.maxUses != null ? String(d.maxUses) : "");
   const [busy, setBusy] = useState(false);
+  const [showStartPicker, setShowStartPicker] = useState(false);
+  const [showEndPicker, setShowEndPicker] = useState(false);
 
   const save = async () => {
     if (!token) return;
@@ -126,10 +129,44 @@ export function StaffDiscountEditorScreen({ navigation, route }: Props) {
       ) : (
         <Text style={styles.hint}>Site-wide promos get an auto-generated internal code on create.</Text>
       )}
-      <Text style={styles.label}>Start date (YYYY-MM-DD)</Text>
-      <TextInput style={styles.input} value={start} onChangeText={setStart} placeholder="optional" />
-      <Text style={styles.label}>End date (YYYY-MM-DD)</Text>
-      <TextInput style={styles.input} value={end} onChangeText={setEnd} placeholder="optional" />
+       <Text style={styles.label}>Start date</Text>
+      <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+        <TextInput style={[styles.input, { flex: 1 }]} value={start} onChangeText={setStart} placeholder="YYYY-MM-DD" />
+        <Pressable onPress={() => setShowStartPicker(true)}>
+          <Text style={{ fontSize: 22 }}>📅</Text>
+        </Pressable>
+        </View>
+      {showStartPicker && (
+        <DateTimePicker
+          value={start ? new Date(start) : new Date()}
+          mode="date"
+          display="default"
+          onChange={(_, date) => {
+            setShowStartPicker(false);
+            if (date) setStart(date.toISOString().slice(0, 10));
+          }}
+        />
+      )}
+
+    <Text style={styles.label}>End date</Text>
+    <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+      <TextInput style={[styles.input, { flex: 1 }]} value={end} onChangeText={setEnd} placeholder="YYYY-MM-DD" />
+      <Pressable onPress={() => setShowEndPicker(true)}>
+        <Text style={{ fontSize: 22 }}>📅</Text>
+      </Pressable>
+    </View>
+    {showEndPicker && (
+      <DateTimePicker
+        value={end ? new Date(end) : new Date()}
+        mode="date"
+        display="default"
+        onChange={(_, date) => {
+          setShowEndPicker(false);
+          if (date) setEnd(date.toISOString().slice(0, 10));
+        }}
+      />
+    )}
+    
       <Pressable style={[styles.cta, busy && { opacity: 0.75 }]} onPress={save} disabled={busy}>
         <Text style={styles.ctaText}>{busy ? "Saving…" : editing ? "Save" : "Create"}</Text>
       </Pressable>
