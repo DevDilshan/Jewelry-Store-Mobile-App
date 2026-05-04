@@ -38,3 +38,4 @@ export function staffCanViewCustomDesignRequests(role: string) {
 export function staffCanEditCustomDesignRequests(role: string) {
   return role === "admin" || role === "productmanager" || role === "sales" || role === "designer";
 }
+//updated
