@@ -32,8 +32,20 @@ export function StaffDiscountEditorScreen({ navigation, route }: Props) {
       Alert.alert("Discount", "Name is required.");
       return;
     }
-    if (Number.isNaN(amt) || amt < 0) {
-      Alert.alert("Discount", "Valid amount is required.");
+    if (!amount.trim() || Number.isNaN(amt)) {
+  Alert.alert("Discount", "Amount is required.");
+  return;
+  }
+   if (amt < 0) {
+  Alert.alert("Discount", "Amount cannot be negative.");
+  return;
+  }
+   if (dtype === "percentage" && amt > 100) {
+  Alert.alert("Discount", "Percentage cannot exceed 100.");
+  return;
+   }
+    if (scope === "coupon" && !editing && !code.trim()) {
+      Alert.alert("Discount", "Promo code is required for coupon discounts.");
       return;
     }
     if (scope === "coupon" && !editing && !code.trim()) {
