@@ -190,6 +190,8 @@ export function CustomDesignScreen({ navigation, route }: Props) {
             />
           </View>
 
+          {/* updated */}
+
           <View style={styles.field}>
             <Text style={styles.label}>
               Email <Text style={styles.req}>*</Text>
