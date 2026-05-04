@@ -65,6 +65,7 @@ function HomeNavigator() {
   );
 }
 
+
 function ShopNavigator() {
   return (
     <ShopStack.Navigator initialRouteName="ProductList" screenOptions={headerOpts}>
@@ -167,6 +168,7 @@ function CustomerTabNavigator() {
 }
 
 export function RootNavigator() {
+  // temp: trigger git diff for PR
   return (
     <NavigationContainer theme={navTheme}>
       <RootStack.Navigator screenOptions={{ headerShown: false }}>
@@ -180,3 +182,7 @@ export function RootNavigator() {
     </NavigationContainer>
   );
 }
+
+
+
+
