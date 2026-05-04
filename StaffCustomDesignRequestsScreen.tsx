@@ -52,6 +52,7 @@ function requesterEmail(row: CustomDesignRequestRow): string {
   return "";
 }
 
+// UI color mapping for request status badges
 function pillStyle(status: string | undefined): { backgroundColor: string; color: string } {
   switch (status) {
     case "in_review":
