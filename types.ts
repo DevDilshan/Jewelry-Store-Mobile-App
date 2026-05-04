@@ -38,6 +38,7 @@ export type AccountStackParamList = {
   ForgotPassword: undefined;
 };
 
+/** Bottom tab navigator for customer app */
 export type RootTabParamList = {
   Home: NavigatorScreenParams<HomeStackParamList>;
   Shop: NavigatorScreenParams<ShopStackParamList>;
