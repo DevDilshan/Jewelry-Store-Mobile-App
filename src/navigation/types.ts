@@ -3,7 +3,7 @@ import type { Order } from "../types/models";
 import type { StaffFeedbackRow } from "../api/staffApi";
 
 export type HomeStackParamList = {
-  Home: undefined;
+  HomeMain: undefined;
 };
 
 /** Catalogue: products, designers, custom design (Shop tab) */
