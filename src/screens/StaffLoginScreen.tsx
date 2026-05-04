@@ -119,4 +119,3 @@ const styles = StyleSheet.create({
   link: { marginTop: 20, alignItems: "center", paddingVertical: 8 },
   linkText: { color: colors.accent, fontWeight: "600" },
 });
-//updated
