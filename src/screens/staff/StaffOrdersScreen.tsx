@@ -110,3 +110,4 @@ const styles = StyleSheet.create({
   meta: { marginTop: 6, fontSize: 15, color: colors.accentMuted, fontWeight: "600" },
   date: { marginTop: 4, fontSize: 13, color: colors.muted },
 });
+//updated

@@ -101,3 +101,4 @@ const styles = StyleSheet.create({
   total: { marginTop: 8, fontSize: 18, fontWeight: "700", color: colors.text },
   date: { marginTop: 4, fontSize: 13, color: colors.muted },
 });
+//updated
