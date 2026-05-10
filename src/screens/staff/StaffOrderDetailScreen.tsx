@@ -120,3 +120,4 @@ const styles = StyleSheet.create({
   },
   ctaText: { color: "#fff", fontWeight: "700", fontSize: 16 },
 });
+//updated
